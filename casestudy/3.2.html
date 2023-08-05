@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(arr,x)
+    {
+        for(let i =0;i<arr.length;i++)
+        {
+            if(arr[i]==x)
+            {
+                return  true;
+            }
+        }
+        return false;
+    }
+
+    let A=[7,2,5,3,5,3];
+    let B=[7,2,5,4,6,3,5,3,10,4,4,4];
+    let array=[];
+    let arr=[];
+    let d;
+    for(let i=0; i<B.length;i++)
+        {
+            if(!check(A,B[i]))
+            {
+                 array.push(B[i]);
+            }
+        }
+    for(let i=0;i<array.length;i++)
+        {
+            if(!check(arr,array[i]))
+            {
+                arr.push(array[i]);
+            }
+        }
+    document.write(arr.toString())
+</script>
+</body>
+</html>

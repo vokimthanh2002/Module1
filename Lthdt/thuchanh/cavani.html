@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ tròn</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div style="width: 600px; margin: auto;">
+    <canvas id="myPieChart"></canvas>
+</div>
+
+<script>
+    const data = {
+        labels: ['Mục 1', 'Mục 2', 'Mục 3', 'Mục 4', 'Mục 5'],
+        datasets: [
+            {
+                data: [10, 20, 30, 15, 25],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(231, 233, 237, 0.7)',
+                    'rgba(54, 162, 235, 0.7)'
+                ],
+                hoverOffset: 4
+            }
+        ]
+    };
+
+    const config = {
+        type: 'pie',
+        data: data
+    };
+
+    const myPieChart = new Chart(
+        document.getElementById('myPieChart'),
+        config
+    );
+</script>
+</body>
+</html>

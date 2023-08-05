@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: pink;
+    }
+    table tr th{
+        background: #de1354;
+        color: white;
+    }
+    .text{
+        width: 200px;
+        height: 30px;
+    }
+    table tr td{
+        color:deeppink;
+    }
+</style>
+<body>
+<h2>THEM MOI XE</h2>
+<input type="button" class="text" value="Them moi xe" style="background: #0de72a ;color:white" onclick="create()"><br>
+<h2>Hien thi tat ca cac xe</h2><br>
+<p id="display"></p>
+</body>
+<script>
+    class Xe{
+        constructor(soXe,hoTenSV,cMND,hangXe,phi) {
+            this.soXe = soXe;
+            this.hoTenSV = hoTenSV;
+            this.cMND = cMND;
+            this.hangXe = hangXe;
+            this.phi = phi;
+        }
+        getSoXe()
+        {
+            return this.soXe;
+        }
+        // setSoXe(newSoXe)
+        // {
+        //     this.soXe=newSoXe;
+        // }
+
+        getHoTenSV()
+        {
+            return this.hoTenSV;
+        }
+        // setHoTenSV(newHoTenSV)
+        // {
+        //     this.hoTenSV=newHoTenSV;
+        // }
+
+        getCMND()
+        {
+            return this.cMND;
+        }
+        // setCMND(newCMND)
+        // {
+        //     this.cMND=newCMND;
+        // }
+
+        getHangXe()
+        {
+            return this.hangXe;
+        }
+        // setHangXe(newHangXe)
+        // {
+        //     this.hangXe=newHangXe;
+        // }
+        getPhi()
+        {
+            return this.phi;
+        }
+        // setSoXe(newPhi)
+        // {
+        //     this.phi=newPhi;
+        // }
+
+    }
+
+    let HonDa= new  Xe("20M1 69509","Vo Kim Thanh",206248038,"HonDa",20000);
+    let YaMaHa= new  Xe("20M1 77777","Vo Huy",206248037,"YaMaHa",20000);
+    let array=[HonDa,YaMaHa];
+    function display(array) {
+        let str = "<table>\n" +
+            "  <tr>\n" +
+            "      <th>Bien So Xe</th>\n" +
+            "      <th>Ho Ten</th>\n" +
+            "      <th>CMND</th>\n" +
+            "      <th>Hang Xe May</th>\n" +
+            "      <th>Phi gui xe</th>\n" +
+            "      <th>Chuc nang</th>\n" +
+            "  </tr>";
+        for (let i = 0; i < array.length ; i++) {
+            str += "<tr>" +
+                "<td>"+ array[i].getSoXe()+"</td>"+
+                "<td>"+ array[i].getHoTenSV()+"</td>"+
+                "<td>"+ array[i].getCMND()+"</td>"+
+                "<td>"+ array[i].getHangXe()+"</td>"+
+                "<td>"+ array[i].getPhi()+"</td>"+
+                "<td>"+
+                "<button style='width: 55px; color:white;background: blue'  onclick='edit("+i+")'>Edit</button>"+
+                "<button style='width: 55px; color:white;background: red'  onclick='remove("+i+")'>Delete</button>"+
+                "</td>"+
+                "</tr>"
+        }
+        str += "</table>";
+        document.getElementById("display").innerHTML = str;
+    }
+    display(array);
+    function create() {
+        let newSoXe = prompt("Nhap so xe");
+        let newHoTen = +prompt("Nhap ho ten");
+        let newCMND = prompt("Nhap CMND");
+        let newHangXe = prompt("Nhap hang xe");
+        let newPhi = prompt("Nhap phi gui xe");
+        for(let i=0;i<array.length;i++)
+        {
+            if(newSoXe===array[i].getSoXe())
+            {
+                alert("bien so xe trung yeu cau nhap lai");
+            }
+        }
+        let newXe = new Xe(newSoXe,newHoTen,newCMND,newHangXe,newPhi);
+        array.push(newXe);
+        alert("Them moi thanh cong");
+        display(array);
+    }
+    function edit(value) {
+        let newSoXe = prompt("Nhap so xe");
+        let newHoTen = +prompt("Nhap ho ten");
+        let newCMND = prompt("Nhap CMND");
+        let newHangXe = prompt("Nhap hang xe");
+        let newPhi = prompt("Nhap phi gui xe");
+        array[value]= new Xe(newSoXe, newHoTen, newCMND, newHangXe, newPhi);
+        alert("Cap nhat thanh cong");
+        display(array);
+    }
+    function remove(value) {
+        let input = confirm("Ban co muon xoa ?");
+        if(input){
+            array.splice(value,1);
+            alert("Xoa thanh cong");
+        }
+        display(array);
+    }
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function In(arr,input)
+    {
+        for(let i=0;i<input;i++)
+        {
+            arr[i]= +prompt("nhap so thu nhat"+(i+1));
+            document.write(arr[i]+" ");
+        }
+        document.write("<br>")
+    }
+    function find(arr,x)
+    {
+        for(let i=0; i<arr.length;i++)
+        {
+            if(arr[i]===x)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function check(arr1,arr2)
+    {
+        let tg=[];
+        for(let  i=0; i<arr1.length;i++)
+        {
+            if(find(arr2,arr1[i]))
+            {
+                tg.push(arr1[i])
+            }
+        }
+
+        for(let i=0; i<tg.length;i++)
+        {
+            for (let j=0;j<arr2.length;j++)
+            {
+                if(arr2[i]!==tg[i] || !find(arr1,arr2[j]))
+                {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    }
+
+    let arr1=[];
+    let arr2=[];
+    let input1=prompt("nhap  bao nhieu so")
+    In(arr1,input1);
+    let input2=prompt("nhap  bao nhieu so")
+    In(arr2,input2);
+    document.writeln(check(arr1,arr2).toString());
+</script>
+</body>
+</html>

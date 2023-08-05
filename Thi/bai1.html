@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function In(arr) {
+        for (let i = 0; i < input; i++) {
+            arr[i] = +prompt("Nhap vao phan tu thu " + (i + 1));
+            document.write(arr[i] + " ");
+        }
+        document.write("<br>")
+    }
+
+    function KiemTra(arr) {
+        for (let i = 0; i < input; i++) {
+            if (arr[i - 1] <= arr[i] && arr[i] <= arr[i + 1] || arr[i - 1] >= arr[i] && arr[i] >= arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let input = +prompt("ban muon nhap vao mang bao nhieu so");
+    let arr = [];
+    while (true) {
+        if (input <= 50) {
+            In(arr);
+            console.log(KiemTra(arr));
+            break;
+        } else {
+            alert("ko duoc lon hon 50");
+            input = +prompt("ban muon nhap vao mang bao nhieu so");
+        }
+    }
+</script>
+</body>
+</html>

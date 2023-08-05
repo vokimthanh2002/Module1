@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Title</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;        
+    }
+    body{
+        min-height:100vh;
+        background: black;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    span{
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(to right, #b2204e 0%, #ffbf00 100%);
+        display: block;
+        position: absolute;
+        animation: anime 1s linear;
+        transition: 1s all;
+        border-radius: 50%;
+        transform: translate(-50%, -50%)  scale(1);
+        pointer-events: none;
+        top:50%;
+        left: 50%;
+    }
+    span:before{
+        content: "";
+        position: absolute;
+        width: 90%;
+        height:90% ;
+        background: black;
+        border-radius: 50%;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+    }
+    @keyframes anime {
+        0%{}
+        100%{
+            opacity: 0;
+            transform: translate(-50%, -50%)  scale(5);
+            filter: hue-rotate(360deg);
+        }
+
+    }
+    table{
+        background: white;
+    }
+    th{
+        size: 25px;
+        color: red;
+    }
+    td{
+        size: 25px;
+        color: black;
+    }
+    li{
+        margin-left: 2%;
+    }
+</style>
+<body>
+<canvas id="canvas" height="126" width="500"  ></canvas>
+<h2 style="color: #de1354; margin-left: 5%">Tʈɧʉͼ✿ɖσɳ亗</h2>
+<ol style="color: #13cece">
+    <li>Cafe: 20K</li>
+    <li>Cam vắt: 40K</li>
+    <li>Nước ép cà rốt: 80K</li>
+    <li>Nước ép cà chua: 90K</li>
+    <li>Nước lọc: 20K</li>
+    <li>Nước dừa: 15K</li>
+    <li>Thoat</li>
+</ol>
+<label style="color: brown">Nhap lua chon</label>
+<input type="text" id="lc" >
+<br>
+<br>
+<label style="color: coral">Nhap so luong</label>
+<input type="text" id="sl">
+<br>
+<br>
+<div style="margin-left: 5%">
+    <input style="color: #de1354; background: deepskyblue"  type="button" value="TINH TIEN" onclick="tt()">
+    <input style="color: #de1354; background: deepskyblue" type="button" value="RESERT" onclick="rs()">
+</div>
+<h1 style="color: green">&#160&#160&#160&#160&#160&#160&#160HÓA ĐƠN</h1>
+<table border="5px">
+    <tr>
+        <th>Loại đồ <u></u>ống</th>
+        <th>Số lượng</th>
+        <th>Đon giá</th>
+        <th>Tổng tiền</th>
+    </tr>
+    <tr>
+        <td><p id="tt3"></p></td>
+        <td><p id="tt"></p></td>
+        <td> <p id="tt2"></p></td>
+        <td>  <p id="tt1"></p></td>
+    </tr>
+</table>
+<span></span>
+<script>
+    let a= document.getElementById("canvas");
+    let ctx= a.getContext("2d");
+    let grd=ctx.createLinearGradient(0,0,500,100);
+    grd.addColorStop(0,"black");
+    grd.addColorStop(1,"black");
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,500,300);
+    ctx.beginPath();
+    ctx.moveTo(250,80);
+    ctx.lineTo(200,200);
+    ctx.lineTo(320,125);
+    ctx.lineTo(180,125);
+    ctx.lineTo(300,200);
+    ctx.closePath();
+    ctx.font="30px Rockwell Extra Bold";
+    ctx.fillStyle="blue";
+    ctx.fillText("Welcome to the store",100,60)
+    ctx.fill();
+    function tt(){
+        let a;
+        let lc= +document.getElementById("lc").value;
+        let sl= +document.getElementById("sl").value;
+        let tt;
+        do{
+            if(lc==""||sl=="")
+            {
+                alert("vui long nhap day du thong tin   ");
+                document.getElementById("lc").focus();
+            }else if(lc!=+lc||sl!=+sl)
+            {
+                alert("chi duoc nhap so");
+                rs();
+                document.getElementById("lc").focus();
+            }else if(lc>7)
+            {
+                alert("vui long nhap lua chon tu 1-7");
+                rs();
+                document.getElementById("lc").focus();
+            }else
+            {
+                switch(lc){
+                    case 1:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=20*sl;
+                            document.getElementById("tt3").innerText= "Cafe" ;
+                            document.getElementById("tt").innerText= sl.toString() ;
+                            document.getElementById("tt2").innerText="20K ";
+                            document.getElementById("tt1").innerText= tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                    case 2:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=40*sl;
+                            document.getElementById("tt3").innerText= "Cam vắt" ;
+                            document.getElementById("tt").innerText=sl.toString();
+                            document.getElementById("tt2").innerText="40K ";
+                            document.getElementById("tt1").innerText=tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                    case 3:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=80*sl;
+                            document.getElementById("tt3").innerText= "Nước ép cà rốt" ;
+                            document.getElementById("tt").innerText=sl.toString();
+                            document.getElementById("tt2").innerText="80K ";
+                            document.getElementById("tt1").innerText=tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                    case 4:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=90*sl;
+                            document.getElementById("tt3").innerText= "Nước ép cà chua" ;
+                            document.getElementById("tt").innerText=sl.toString();
+                            document.getElementById("tt2").innerText="90K ";
+                            document.getElementById("tt1").innerText=tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                    case 5:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=20*sl;
+                            document.getElementById("tt3").innerText= "Nước lọc" ;
+                            document.getElementById("tt").innerText=sl.toString();
+                            document.getElementById("tt2").innerText="20K ";
+                            document.getElementById("tt1").innerText=tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                    case 6:
+                        a=confirm("ban xac nhan mua: ");
+                        if(a)
+                        {
+                            tt=15*sl;
+                            document.getElementById("tt3").innerText= "Nước dừa" ;
+                            document.getElementById("tt").innerText=sl.toString();
+                            document.getElementById("tt2").innerText="15K ";
+                            document.getElementById("tt1").innerText=tt+"k";
+                            break;
+                        }else
+                        {
+                            alert("Khong co tien ma cung doi mua");
+                            rs()
+                            break;
+                        }
+                }
+            }
+        }while(lc==7)
+    }
+    function rs() {
+        document.getElementById("lc").value="";
+        document.getElementById("sl").value="";
+        document.getElementById("tt3").innerText="";
+        document.getElementById("tt").innerText="";
+        document.getElementById("tt2").innerText="";
+        document.getElementById("tt1").innerText="";
+        document.getElementById("lc").focus();
+    }
+    const body=  document.querySelector("body")
+    body.addEventListener("mousemove",(event)=>
+    {
+        let x= event.offsetX;
+        let y= event.offsetY;
+        let span = document.createElement("span");
+        span.style.left=x+"px";
+        span.style.top=y+"px";
+        body.appendChild(span)
+        setTimeout(function () {
+            span.remove()
+        },500)
+    })
+</script>
+</body>
+</html>

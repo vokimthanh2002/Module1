@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function SNT(so) {
+        let d=0;
+        if (so >= 2) {
+            for (let i = 0; i <= so; i++) {
+                if (so % i === 0) {
+                    d++;
+                }
+            }
+            return d === 2;
+        } else {
+            return false;
+        }
+    }
+    function InArray(arr) {
+        let input=+prompt("How to input number")
+        for(let i=0;i<input;i++)
+        {
+            arr[i]= +prompt("Input index "+i);
+            document.writeln(arr[i]);
+        }
+        document.writeln("<br>")
+        }
+    function checkArray(arr) {
+        for(let i=0;i<arr.length;i++)
+        {
+            if(SNT(arr[i]))
+            {
+                arr[i]="*";
+            }
+        }
+        document.writeln(arr)
+        }
+    let arr=[];
+    InArray(arr);
+    checkArray(arr);
+</script>
+</body>
+</html>

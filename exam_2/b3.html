@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function In(arr)
+    {
+        for(let i=0;i<input;i++)
+        {
+            arr[i]= +prompt("Input index "+(i+1));
+            document.write(arr[i]+" ");
+        }
+        document.write("<br>")
+    }
+    function Calculate(arr) {
+        let a=[];
+        for(let i=0;i<arr.length;i++)
+        {
+            let d=0;
+            for(let j=0;j<arr.length;j++)
+            {
+                if(arr[i]===arr[j])
+                {
+                    d++;
+                }
+            }
+            if(a.indexOf(arr[i])===-1)
+            {
+                document.writeln(arr[i]+" xuat hien "+d+" lan ");
+                a.push(arr[i]);
+                document.writeln("<br>");
+            }
+        }
+    }
+    let input=+prompt("Input number");
+    let arr=[];
+    In(arr);
+    Calculate(arr);
+</script>
+</body>
+</html>

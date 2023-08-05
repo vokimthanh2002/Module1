@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Max2s(a,b) {
+        if(a>b)
+        {
+            return a;
+        }else
+        {
+            return b;
+        }
+
+    }
+    function Max(arr)
+    {
+        let max=arr[0];
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]>max)
+            {
+                max=arr[i];
+            }
+        }
+        return  max;
+    }
+    let numerators = [3, 2, 5];
+    let denominators = [6, 3, 4];
+    let A=[];
+    for(let i=0;i<numerators.length;i++)
+    {
+        for(let j=0;j<denominators.length;j++)
+        {
+            A.push((+numerators[i]/(+denominators[j])));
+        }
+    }
+    for(let i=0;i<numerators.length;i++)
+    {
+        for(let j=0;j<denominators.length;j++)
+        {
+            if((+numerators[i]/(+denominators[j]))==Max(A))
+            {
+                document.write("so lon  nhat  la: "+numerators[i]+"/"+denominators[j]);
+                document.write("<br>");
+                document.write("co  chi so la: "+ Max2s(i,j));
+            }
+        }
+    }
+</script>
+</body>
+</html>

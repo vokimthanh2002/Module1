@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let t1=+prompt("nhap  vao tu 1");
+    let m1=+prompt("nhap  vao mau 1");
+    let t2=+prompt("nhap  vao tu 2");
+    let m2=+prompt("nhap  vao tu 2");
+    let ps1=t1/m1;
+    let ps2=t2/m2;
+    document.writeln(t1+"/"+m1);
+    document.writeln("<br>");
+    document.writeln(+t2+"/"+m2);
+    document.writeln("<br>");
+    if(ps1===ps2)
+    {
+        document.writeln(t1+"/"+m1+" va "+t2+"/"+m2+" bang nhau");
+    }else if(ps1>ps2)
+    {
+        document.writeln(t1+"/"+m1+" va "+t2+"/"+m2+" ps1 lon  hon");
+    }else
+    {
+        document.writeln(t1+"/"+m1+" va "+t2+"/"+m2+" ps1 be hon");
+    }
+</script>
+</body>
+</html>

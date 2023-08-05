@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function SNT(so) {
+        let  d=0;
+        if(so<2)
+        {
+            return false;
+        }
+        else
+        {
+
+            for(let i=1;i<=so;i++)
+            {
+                if(so%i===0)
+                {
+                    d++;
+                }
+            }
+            return d === 2;
+        }
+    }
+
+    function display() {
+        let input= +prompt("how to number");
+        for(let i=0;i<=input;i++)
+        {
+            if(!SNT(i))
+            {
+               document.writeln(i.toString()) ;
+            }
+        }
+    }
+    display();
+</script>
+</body>
+</html>

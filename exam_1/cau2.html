@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function In(arr)
+    {
+        let input= +prompt("Input number: ");
+        document.write("Array: ");
+        for(let i=0;i<input;i++)
+        {
+            arr[i] = +prompt("arr: "+(i+1));
+            document.write(arr[i]+" ");
+        }
+        document.write("<br>")
+    }
+    function Delete(arr) {
+        let arr2 = [];
+        let input = +prompt("Input delete");
+        for (let i = 0; i < arr.length; i++) {
+            if (input !== arr[i]) {
+                arr2.push(arr[i])
+            }
+        }
+        document.write("Array new: "+arr2.join(" "))
+    }
+    let arr=[];
+    In(arr);
+    Delete(arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Create class Can bo
+class CanBo
+{
+    constructor(name,age,address,sex) {
+        this.name=  name;
+        this.age= age;
+        this.address= address;
+        this.sex=sex;
+    }
+
+    //Khoi tao phuong thuc get
+    getNewName()
+    {
+        return this.name;
+    }
+    getNewAge()
+    {
+        return this.age;
+    }
+    getNewAddress()
+    {
+        return this.address;
+    }
+    getNewSex()
+    {
+        return this.sex;
+    }
+
+    // Khoi tao phuong thuc set
+    setNewName(name)
+    {
+        this.name= name;
+    }
+    setNewAge(age)
+    {
+       this.age= age;
+    }
+    setNewAddress(address)
+    {
+        this.address= address;
+    }
+    setNewSex(sex)
+    {
+        this.sex= sex;
+    }
+}
+
+// Create class Cong Nhan
+    class CongNhan extends CanBo
+    {
+        constructor(name,age,address,sex,bac) {
+            super(name,age,address,sex);
+            this.bac=bac;
+        }
+        getBac()
+        {
+            return this.bac;
+        }
+        setBac(bac)
+        {
+            this.bac= bac;
+        }
+    }
+    // Create class Ki Su
+    class KiSu extends CanBo
+    {
+        constructor(name,age,address,sex,daotao) {
+            super(name,age,address,sex);
+            this.daotao=daotao;
+        }
+        getDaoTao()
+        {
+            return this.daotao;
+        }
+        setDaoTao(daotao)
+        {
+            this.daotao=daotao;
+        }
+    }
+    //Create lass Nhan Vien
+    class NhanVien extends CanBo
+    {
+        constructor(name,age,address,sex,job) {
+            super(name,age,address,sex);
+            this.job=job;
+        }
+        getJob()
+        {
+            return this.job;
+        }
+        setJob(job)
+        {
+            this.job=job;
+        }
+    }
+
+
+    <img src="../Lthdt/baitap/off.png" height="206" width="206"/><img src="../Lthdt/baitap/pikachu.png" height="300"
+                                                                      width="300"/></script>
+
+</body>
+</html>

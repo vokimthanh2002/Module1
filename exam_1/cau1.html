@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function In(arr)
+    {
+        let input= +prompt("nhap vao mang bao nhieu diem: ");
+        for(let i=0;i<input;i++)
+        {
+            arr[i]= +prompt("nhap vao  diem thu "+(i+1));
+            document.write("Diem thu"+(i+1) +"la: "+arr[i]);
+            document.write("<br>")
+        }
+    }
+    function maxArray(arr) {
+        let max=arr[0];
+        for(let i=0; i<arr.length;i++)
+        {
+            if(arr[i]>max)
+            {
+                max=arr[i];
+            }
+        }
+        return max;
+    }
+    let arr=[];
+    In(arr);
+    document.write("<br> Max "+maxArray(arr));
+</script>
+</body>
+</html>

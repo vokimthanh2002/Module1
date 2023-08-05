@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="500"  ></canvas>
+<script>
+    class Circle {
+        constructor(x, y, color, r) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.r = r;
+        }
+
+        // getX() {
+        //     return this.x;
+        // }
+        //
+        // getY() {
+        //     return this.y;
+        // }
+        //
+        // getColor() {
+        //     return this.color;
+        // }
+        //
+        // getR() {
+        //     return this.r;
+        // }
+
+        getRandomHex() {
+            return Math.floor(Math.random() * 255)
+        }
+
+        randomColor() {
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+
+        ranDer() {
+            let ctx = document.getElementById("canvas").getContext("2d");
+            let color = this.randomColor();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+    }
+    let ht=new Circle(230,200,"",80);
+    ht.ranDer();
+</script>
+</body>
+</html>

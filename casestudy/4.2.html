@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let  arr=[];
+  let d=0;
+  let  str =prompt("nhap  string :");
+  function check(arr,x) {
+      for(let  i=0; i<arr.length;i++)
+      {
+          if(arr[i]==x)
+          {
+              return  1;
+          }
+      }
+      return 0;
+  }
+    for(let i=0; i<str.length;i++)
+    {
+        if(check(arr,str[i])==0)
+        {
+            arr.push(str[i]);
+            d++;
+        }
+    }
+    document.write(arr.toString())
+    document.write("<br>")
+  document.write("so cac ki tu la:  "+d)
+</script>
+</body>
+</html>
+</body>
+</html>

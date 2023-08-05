@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function In(arr)
+    {
+        for(let i=0;i<input;i++)
+        {
+            arr[i]= +prompt("nhap vao  diem thu "+(i+1));
+            document.write(arr[i]+" ");
+        }
+        document.write("<br>")
+    }
+
+    function Tinh(arr) {
+        let s=0;
+        for(let i=0;i<arr.length;i++)
+        {
+            if (arr[i] %2  !==0   &&  i%2===0)
+            {
+                s=s+arr[i];
+            }
+        }
+        document.write("Tong cac so le o vi tri chan "+s);
+    }
+
+    let  input=  +prompt("ban muon nhap vao mang bao nhieu so");
+    let arr=[];
+    while (true)
+    {
+        if (input > 50) {
+            alert("ko duoc lon hon 50");
+            input = +prompt("ban muon nhap vao mang bao nhieu so");
+        } else {
+            In(arr);
+            Tinh(arr);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

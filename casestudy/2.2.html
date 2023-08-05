@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>KIEM TRA NGUYEN AM PHU AM</label>
+<input type="text" id="text_output">
+<br>
+<input type="button"  value="KIEM TRA"  onclick="KT()">
+<br>
+<p id="result"></p>
+<script>
+    function  KT()
+    {
+        let nhap= document.getElementById("text_output").value;
+        if(nhap=="o" || nhap=="u" || nhap=="i" || nhap=="a" || nhap=="e" ||
+           nhap=="O" || nhap=="U" || nhap=="I" || nhap=="A" || nhap=="E")
+        {
+            document.getElementById("result").innerText= nhap +" la ki tu nguyen am";
+        }
+        else if(nhap==="")
+        {
+            document.getElementById("result").innerText= "ban hay nhap ki tu vao";
+        }else
+            document.getElementById("result").innerText= nhap +" la ki tu phu am";
+
+    }
+</script>
+</body>
+</html>

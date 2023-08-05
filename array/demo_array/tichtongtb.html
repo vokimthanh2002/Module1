@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tiChTogTb(arr) {
+        let tich=1;
+        let tong=0;
+        let avg=1;
+        let d=0;
+        for(let i=0;i<arr.length;i++){
+            tich=tich*arr[i];
+            tong= tong+arr[i];
+            d++;
+        }
+        avg=tong/d;
+        document.write("tich la: "+tich);
+        document.write("<br>");
+        document.write("tong la: "+tong);
+        document.write("<br>");
+        document.write("Trung binh la: "+avg);
+        document.write("<br>");
+    }
+    let nhap=  +prompt("ban muonn  nhap bao nhieu so vao mang:");
+    let A=[];
+    for(let i=0;i<nhap;i++)
+    {
+        A[i]=+prompt("nhap phan  tu thu "+ i);
+    }
+    document.write(A.join(" "));
+    document.write("<br>");
+    tiChTogTb(A);
+</script>
+</body>
+</html>

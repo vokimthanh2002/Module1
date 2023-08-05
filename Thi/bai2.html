@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function KiemTra(str) {
+           str.split("")
+          if(str.length>10)
+          {
+              return false;
+          }else if(str[0]!==+str[0] || str[1]!==+str[1] || str[2]!=="/" ||
+                   str[3]!==+str[3] || str[4]!==+str[4] || str[5]!=="/" || str[6]!==+str[6] || str[7]!==+str[7] ||
+              str[8]!==+str[8] || str[9]!==+str[9] )
+          {
+              return false
+          }else{
+              return true;
+          }
+  }
+  let input= prompt("input string");
+  console.log(KiemTra(input));
+
+
+</script>
+</body>
+</html>

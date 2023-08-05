@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tongUoc(so)
+    {
+        let s=0;
+        for(let i=1; i<so;i++)
+        {
+            if(so%i==0)
+            {
+                s=s+i;
+            }
+        }
+        return s;
+    }
+    function check(so1,so2)
+    {
+        let tongUocSo1=tongUoc(so1);
+        let tongUocSo2=tongUoc(so2);
+        if(tongUocSo1==so2 && tongUocSo2==so1)
+        {
+            return true;
+        }else
+        {
+          return false;
+        }
+    }
+    let so1=+prompt("nhap so  thu nhat: ")
+    let so2=+prompt("nhap so  thu hai: ")
+    console.log(check(so1,so2))
+
+
+</script>
+</body>
+</html>

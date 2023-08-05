@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>NHAP SO TIEN LUONG</label>
+<input type="text" id="text_output">
+<br>
+<input type="button"  value="TINH"  onclick="tinh()">
+<br>
+<p id="result">Tong luong thuc:</p>
+<script>
+    function  tinh()
+    {
+        let luong= document.getElementById("text_output").value;
+        let thucnhan;
+        if(luong==="")
+        {
+            alert("nhap luong vao moi tinh duoc");
+        }
+        else if(luong!=+luong)
+        {
+            alert("luong khong bao gom ki tu");
+        }
+        else if(luong<3000000)
+        {
+            thucnhan= +luong+(+luong*0.5);
+            alert("haizz luong duoi 3tr ma nop thue cai gi cho them 50% ma song ne");
+            document.getElementById("result").innerText=thucnhan+"VND";
+        }
+        else if(luong<7000000)
+        {
+            thucnhan= luong-luong*0.05;
+            document.getElementById("result").innerText=thucnhan+"VND";
+        }
+        else if(luong<15000000)
+        {
+            thucnhan= luong-luong*0.1;
+            document.getElementById("result").innerText=thucnhan+"VND";
+        }
+        else
+        {
+            thucnhan= luong-luong*0.2;
+            document.getElementById("result").innerText=thucnhan+"VND";
+        }
+
+    }
+</script>
+</body>
+</html>

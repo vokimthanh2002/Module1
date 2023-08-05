@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: pink;
+    }
+    h1{
+        margin-left: 5% ;
+        color: red;
+    }
+    ol li {
+        color: #860d3d;
+    }
+</style>
+<body>
+<h1> Thuc don</h1>
+<ol>
+    <li>Cafe</li>
+    <li>Nuoc ep</li>
+    <li>Nuoc dua</li>
+    <li>Cam</li>
+    <li>Chanh</li>
+    <li>Toi</li>
+    <li>Thoat</li>
+</ol>
+<label>Nhap  lua chon</label>
+<input type="text" id="inputLc_text">
+<br><br>
+<label>Nhap so luong</label>
+<input type="text" id="inputSl_text">
+<br><br>
+<input  type="button" value="Tinh tien" onclick="tt()">
+<br><br>
+<span id="result"></span>
+
+<script>
+    function  tt() {
+        let arr = [1, 2, 3, 4, 5, 6];
+        let arr1 = [20000, 10000, 10000, 15000, 70000, 30000];
+        let tt;
+        let lc = +document.getElementById("inputLc_text").value;
+        let sl = +document.getElementById("inputSl_text").value;
+       do{
+           {
+               for (let i = 0; i < arr.length; i++) {
+                   if (lc == arr[i]) {
+                       tt = arr1[i] * sl;
+                   }
+               }
+               document.getElementById("result").innerHTML = tt+" VND";
+           }
+       }while (lc==7)
+    }
+</script>
+</body>
+</html>

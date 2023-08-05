@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Write a JavaScript program to find the most frequent item of an array. - w3resource</title>
+</head>
+<body>
+<script>
+    let arr=[1,2,3,4,5,5,5,5,1,1,1];
+    let d;
+    let max=1;
+    for(let i=0;i<arr.length;i++)
+    {
+        d=0;
+        {
+            for(let j=i;j<arr.length;j++)
+            {
+                if(arr[i]==arr[j])
+                    d++;
+            }
+        }
+        if(d>max)
+        {
+            max=d;
+            document.write("so xuat hien nhieu nhat :"+arr[i]+"<br>" + "xuat hien "+max+" lan")
+        }
+    }
+
+
+</script>
+</body>
+</html>

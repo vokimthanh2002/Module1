@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function SNT(so) {
+        let d=0;
+        if(so<2)
+        {
+            return  0;
+        }else
+        {
+            for(let i=1;i<=so;i++)
+            {
+                if(so%i==0)
+                {
+                    d++;
+                }
+            }
+            if(d==2)
+            {
+                return 1;
+            }
+            else
+            {
+                return  0;
+            }
+        }
+    }
+    console.log(SNT(7))
+    // function lietKeDemSNT(m,n)
+    // {
+    //     let board=[];
+    //     let ghi=[];
+    //     let d=0;
+    //     for(let i=0;i<m;i++)
+    //     {
+    //         board[i] = new Array();
+    //         for(let j=0; j<n;j++)
+    //         {
+    //             board[i][j]=prompt("nhap phan tu A"+i+j);
+    //             document.writeln("board"+"["+i+"]"+"["+j+"] = "+ board[i][j]);
+    //             document.write("<br>");
+    //         }
+    //         document.write("<br>");
+    //     }
+    //     for(let i=0;i<m;i++)
+    //     {
+    //         for(let j=0;j<n;j++)
+    //         {
+    //             if(SNT(+board[i][j])==1)
+    //             {
+    //                 d++;
+    //                 ghi.push(board[i][j]);
+    //             }
+    //         }
+    //     }
+    //     document.write("Hien thi  tat ca cac so nguyen  to trong ma tran: "+ghi);
+    //     document.write("<br>");
+    //     document.write("Dem cac so nguyen to  co  tronng manng do: "+d)
+    // }
+    // let m=+prompt("nhap  m");
+    // let n=+prompt("nhap  n");
+    // lietKeDemSNT(m,n);
+</script>
+</body>
+</html>

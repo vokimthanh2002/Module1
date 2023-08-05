@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:pink">
+<h1 STYLE="margin-left: 20%; color: #de1354">TRUNG TAM SO SO KHONG BAO GIO TRUNG</h1>
+<div>
+    <p id="result"></p>
+</div>
+<div style="margin-left: 25%">
+    <input type="button" value="Mua ve" onclick="menu()" style="width: 200px;height: 50px; background: #de1354">
+    <input type="button" value="Mua lai" onclick="rs()" style="width: 200px;height: 50px; background: #de1354">
+    <input type="button" value="Xem ket qua" onclick="display()"  style="width: 200px;height: 50px; background: red"><br><br>
+</div>
+<script>
+    class  Lottery{
+        constructor(number1,number2,number3,number4,number5,number6,grade="") {
+            this.numer1=number1;
+            this.numer2=number2;
+            this.numer3=number3;
+            this.numer4=number4;
+            this.numer5=number5;
+            this.numer6=number6;
+            this.grade=grade;
+        }
+        getNumber1()
+        {
+            return this.numer1;
+        }
+        setNumber1(number1)
+        {
+            this.numer1=number1;
+        }
+        getNumber2()
+        {
+            return this.numer2;
+        }
+        setNumber2(number2)
+        {
+            this.numer2=number2;
+        }
+        getNumber3()
+        {
+            return this.numer3;
+        }
+        setNumber3(number3)
+        {
+            this.numer3=number3;
+        }
+        getNumber4()
+        {
+            return this.numer4;
+        }
+        setNumber4(number4)
+        {
+            this.numer4=number4;
+        }
+        getNumber5()
+        {
+            return this.numer5;
+        }
+        setNumber5(number5)
+        {
+            this.numer5=number5;
+        }
+        getNumber6()
+        {
+            return this.numer6;
+        }
+        setNumber6(number6)
+        {
+            this.numer6=number6;
+        }
+        getGrade()
+        {
+            return this.grade;
+        }
+        setGrade(grade)
+        {
+            this.grade=grade;
+        }
+        getNumber()
+        {
+            return [this.numer1,this.numer2,this.numer3,this.numer4,this.numer5,this.numer6]
+        }
+        getRandomNumber()
+        {
+            this.setNumber1(Math.floor(Math.random()*99));
+            this.setNumber2(Math.floor(Math.random()*99));
+            this.setNumber3(Math.floor(Math.random()*99));
+            this.setNumber4(Math.floor(Math.random()*99));
+            this.setNumber5(Math.floor(Math.random()*99));
+            this.setNumber6(Math.floor(Math.random()*99));
+        }
+        // getInfo()
+        // {
+        //     return  "ve so" + this.getNumber().join(" ") + this.grade;
+        // }
+    }
+
+    let arrLottery =[]
+    let arr;
+
+    function menu() {
+        let choose;
+        if (arrLottery.length < 4)
+        {
+             choose = +prompt("ban co 2 su lua chon \n"+
+            "1.Ban muon nhap so tu chon \n" +
+            "2.ban muon he thong chon");
+            if (choose===1)
+            {
+                inputLottery();
+            }else if(choose===2)
+            {
+                confirm("Ban xac nhan mua");
+                ranDomNumber();
+            }
+        }else
+        {
+            alert("ban da het luot mua ");
+        }
+    }
+
+    function drawLottery(arr) {
+        let str="";
+        for(let i=0;i<arr.length;i++)
+        {
+            str +="<label>ve so "+(i+1)+ ":"+"</label>"+
+                " <input style='text-align: center; color: #0839ea'   value='"+arr[i].getNumber1()+"'>" +
+                    " <input style='text-align: center; color: #de1354'  value='"+arr[i].getNumber2()+"'>" +
+                    " <input style='text-align: center; color: #20ea19' value='"+arr[i].getNumber3()+"'>" +
+                    " <input  style='text-align: center; color: #de7213'  value='"+arr[i].getNumber4()+"'>" +
+                    " <input style='text-align: center; color: #08efc1'  value='"+arr[i].getNumber5()+"'>" +
+                    " <input style='text-align: center; color: #f5a810'  value='"+arr[i].getNumber6()+"'>" +"<br><br>"
+        }
+    document.getElementById("result").innerHTML= str;
+}
+
+    function ranDomNumber() {
+        let lottery = new Lottery();
+        lottery.getRandomNumber();
+        arrLottery.push(lottery);
+        drawLottery(arrLottery);
+    }
+    function inputLottery() {
+        let arr=[]
+        for(let i=0;i<6;i++)
+        {
+            arr[i]= +prompt("nhap vao so thu "+ (i+1)+" cua ve so");
+        }
+        confirm("Ban xac nhan mua");
+        let lottery= new Lottery(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]);
+        arrLottery.push(lottery);
+        drawLottery(arrLottery);
+    }
+//check lottery
+    function check(lottery) {
+        let count = 0;
+         arr = [99,99,99,99,99,99];
+        console.log(arr)
+        for (let i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] === lottery.getNumber()[i]) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        switch (count) {
+            case 6:
+                lottery.setGrade(1);
+                break;
+            case 5:
+                lottery.setGrade(2);
+                break;
+            case 4:
+                lottery.setGrade(3);
+                break;
+            case 3:
+                lottery.setGrade(4);
+                break;
+            default:
+                lottery.setGrade(0)
+
+        }
+    }
+    // display all lottery
+
+        function display() {
+            let result="";
+            for(let i=0;i<arrLottery.length;i++)
+            {
+                check(arrLottery[i]);
+                switch (arrLottery[i].getGrade()) {
+                    case 1:
+                        result += "\nGiai nhat: 20.000.000.000 VND\n";
+                        break;
+                    case 2:
+                        result += " \nGiai nhi: 5.000.000.000 VND\n ";
+                        break;
+                    case 3:
+                        result += " \nGiai ba: 3.000.000.000 VND\n ";
+                        break;
+                    case 4:
+                        result += " \nGiai khuyen khich: 1.000.000.000 VND\n "
+                        break;
+                    case 0:
+                        break;
+                }
+            }
+            if(result ==="" && arrLottery.length>=1)
+            {
+               alert("Chuc ban may man  lan sau  !!!");
+            }
+            else if(result ==="" && arrLottery.length===0)
+            {
+                alert("Ban phai mua ve so  truoc da");
+            }
+            else
+            {
+               alert("Ban da trung: "+result);
+            }
+        }
+        function rs() {
+        arrLottery.splice(0,arrLottery.length);
+        drawLottery(arrLottery);
+        menu();
+        }
+
+</script>
+
+</body>
+</html>

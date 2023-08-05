@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="margin-left:30% ">
+        <h1>Tinh diem thi tot nghiep nam 2022</h1>
+        <label>Toan</label>
+        <input type="text" id="dt"  placeholder="Diem mon Toan" size="40">
+        <br>
+        <br>
+        <label>Van</label>
+        <input type="text" id="dv"  placeholder="Diem mon Van" size="40">
+        <br>
+        <br>
+        <label>NN</label>
+        <input type="text" id="dnn"  placeholder="Diem mon ngoai ngu"  size="40">
+        <br>
+        <br>
+        <label>TH1</label>
+        <input type="text" id="th1"  placeholder="Diem mon 1 to hop KHTN/KHXH" size="40">
+        <br>
+        <br>
+        <label>TH2</label>
+        <input type="text" id="th2"  placeholder="Diem mon 2 to hop KHTN/KHXH" size="40">
+        <br>
+        <br>
+        <label>TH3</label>
+        <input type="text" id="th3"  placeholder="Diem mon 3 to hop KHTN/KHXH" size="40">
+        <br>
+        <br>
+        <label>TB</label>
+        <input type="text" id="tb"  placeholder="Diem trung binh ca nam lop 12" size="40">
+        <br>
+        <br>
+        <label>KK</label>
+        <input type="text" id="kk"  placeholder="Diem KK" size="40">
+        <br>
+        <br>
+        <label>UT</label>
+        <input type="text" id="ut"  placeholder="Diem uu tien" size="40">
+        <br>
+        <br>
+        <input type="radio" name="gd" id="thpt" value="thpt">THPT
+        <input type="radio" name="gd" id="gdtx" value="gdtx">GDTX
+        <br>
+        <br>
+        <input value="Tinh" type="button" onclick="Tinh()" >
+        <input value="Resert" type="button" onclick="resert()" >
+    </div>
+<script>
+    function Tinh() {
+        let diemT = parseFloat(document.getElementById("dt").value) || "";
+        let diemV = parseFloat(document.getElementById("dv").value) || "";
+        let diemNN = parseFloat(document.getElementById("dnn").value) || "";
+        let diemTH1 = parseFloat(document.getElementById("th1").value) || "";
+        let diemTH2 = parseFloat(document.getElementById("th2").value) || "";
+        let diemTH3 = parseFloat(document.getElementById("th3").value) || "";
+        let diemTB = parseFloat(document.getElementById("tb").value) || "";
+        let diemKK = parseFloat(document.getElementById("kk").value) || 0;
+        let diemUT = parseFloat(document.getElementById("ut").value) || 0;
+        let radio = document.getElementsByName("gd");
+        if (radio) {
+            if (radio[0].checked) {
+                if (diemT === "" || diemV === "" || diemNN === "" || diemTH1 === "" || diemTH2 === "" || diemTH3 === "" || diemTB === "") {
+                    alert("ban can nhap day du thong tin!!!");
+                } else if (diemT <= 1 || diemV <= 1 || diemNN <= 1 || diemTH1 <= 1 || diemTH2 <= 1 || diemTH3 <= 1)
+                    alert("Bạn đã trượt tốt nghiệp do có 1 môn dưới hoặc bằng 1!");
+                else {
+                    let diemTH = (diemTH1 + diemTH2 + diemTH3) / 3;
+                    let diemTN = (((diemT + diemV + diemNN + diemTH + diemKK) / 4) * 7 + diemTB * 3) / 10 + diemUT;
+                    if (diemTN < 5)
+                        alert(diemTN.toFixed(2) +
+                            " ban da rot");
+                    else
+                        alert(diemTN.toFixed(2) +
+                            " ban da dau");
+                }
+
+            } else if (radio[1].checked) {
+                if (diemT == "" || diemV == "" || diemNN == "" || diemTH1 == "" || diemTH2 == "" || diemTH3 == "" || diemTB == "") {
+                    alert("ban can nhap day du thong tin!!!");
+                } else if (diemT <= 1 || diemV <= 1 || diemNN <= 1 )
+                    alert("Bạn đã trượt tốt nghiệp do có 1 môn dưới hoặc bằng 1!");
+                else {
+                    let diemTH = (diemTH1 + diemTH2 + diemTH3) / 3;
+                    let diemTN = (((diemT + diemV + diemNN ) / 3 + diemKK / 4) * 7 + diemTB * 3) / 10 + diemUT;
+                    if (diemTN < 5)
+                        alert(diemTN.toFixed(2) +
+                            " ban da rot");
+                    else
+                        alert(diemTN.toFixed(2) +
+                            " ban da dau");
+
+                }
+            } else {
+                alert("Ban phai chon he giao duc");
+            }
+
+        }
+
+        function resert() {
+            document.getElementById("dt").value = "";
+            document.getElementById("dv").value = "";
+            document.getElementById("dnn").value = "";
+            document.getElementById("th1").value = "";
+            document.getElementById("th2").value = "";
+            document.getElementById("th3").value = "";
+            document.getElementById("tb").value = "";
+            document.getElementById("kk").value = "";
+            document.getElementById("ut").value = "";
+            document.getElementById("text_output").innerText = "";
+        }
+    }
+</script>
+</body>
+</html>

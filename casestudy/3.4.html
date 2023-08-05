@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hhahaha</title>
+</head>
+<body>
+<script>
+    let nhap= prompt("Hay nhap so toi se bien thanh chu cho ban:");
+    let arr = nhap.split('');
+    let so=[0,1,2,3,4,5,6,7,8,9];
+    let tg=[];// dung delay vi  tri
+    let tg1 =[];// dung de lay gia  tri
+    let chu=["𝖐𝖍𝖔̂𝖓𝖌"," 𝖒𝖔̣̂𝖙","𝖍𝖆𝖎","𝖇𝖆","𝖇𝖔̂́𝖓","𝖓𝖆̆𝖒","𝖘𝖆́𝖚","𝖇𝖆̉𝖞","𝖙𝖆́𝖒","𝖈𝖍𝖎́𝖓"];
+        if (nhap == +nhap) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < so.length; j++) {
+                    if (arr[i] == so[j] && arr[i] == +arr[i]) {
+                        tg.push(j);
+                    }
+                }
+            }
+            // document.writeln(tg)
+
+            for (let i = 0; i < tg.length; i++) {
+                for (let j = 0; j < chu.length; j++) {
+                    if (tg[i] == j) {
+                        tg1.push(chu[j]);
+                    }
+                }
+            }
+            document.writeln(tg1.join(" "));
+        }else {
+            alert("yeu  cau nhap lai");
+        }
+    // let chu=["𝖐𝖍𝖔̂𝖓𝖌"," 𝖒𝖔̣̂𝖙","𝖍𝖆𝖎","𝖇𝖆","𝖇𝖔̂́𝖓","𝖓𝖆̆𝖒","𝖘𝖆́𝖚","𝖇𝖆̉𝖞","𝖙𝖆́𝖒","𝖈𝖍𝖎́𝖓"];
+    // let s=prompt("nhap s: ");
+    // for(let i=0;i<s.length;i++)
+    // {
+    //     let x=s[i];
+    //     document.write(chu[x]+" ")
+    // }
+
+</script>
+</body>
+</html>

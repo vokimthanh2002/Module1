@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><u>Product Management</u></h1>
+<input type="button" value="Create Procedure" onclick="create()">
+<div id="result"></div>
+<script>
+    class Procedure{
+        constructor(name,price,status,hsd) {
+            this.name=name;
+            this.price= price;
+            this.status=status;
+            this.hsd=hsd;
+        }
+        getName()
+        {
+            return this.name;
+        }
+        // setName(newName)
+        // {
+        //     this.name=newName;
+        // }
+        getPrice()
+        {
+            return  this.price;
+        }
+        // setPrice(newPrice)
+        // {
+        //     this.price=newPrice;
+        // }
+        getStatus()
+        {
+            return this.status;
+        }
+        // setStatus(newStatus)
+        // {
+        //     this.status=newStatus;
+        // }
+        getHsd()
+        {
+            return this.hsd;
+        }
+        // setHsd(newHsd)
+        // {
+        //     this.hsd=newHsd;
+        // }
+    }
+    let sp1= new Procedure("Light",1200000,"new","12/8/2025");
+    let sp2= new Procedure("Fan",120000,"old","12/3/2025");
+    let array=[sp1,sp2];
+    function display(arr) {
+        let str="<table  border=\"1px\">\n" +
+            "    <tr>\n" +
+            "        <th>Name Procedure</th>\n" +
+            "        <th>Price </th>\n" +
+            "        <th>Status</th>\n" +
+            "        <th>HSD</th>\n" +
+            "        <th>Option</th>\n" +
+            "    </tr>\n"
+        for(let  i=0;i<arr.length;i++)
+        {
+           str+= "<tr>\n" +
+            "        <td>"+arr[i].getName()+"</td>\n" +
+            "        <td>"+arr[i].getPrice()+"</td>\n" +
+            "        <td>"+arr[i].getStatus()+"</td>\n" +
+            "        <td>"+arr[i].getHsd()+"</td>\n" +
+            "<td>"+
+               "<button style='width: 55px; color:white;background: blue'  onclick='edit("+i+")'>Edit</button>"+
+               "<button style='width: 55px; color:white;background: red'  onclick='remove("+i+")'>Delete</button>"+
+            "</td>\n" +
+            "</tr>\n"+"<br>"
+        }
+        str+="</table>"
+        document.getElementById("result").innerHTML=str;
+    }
+    display(array)
+  function create() {
+      {
+          let newName=prompt("Input name");
+          let newPrice=+prompt("Input price");
+          let newStatus=prompt("Input status");
+          let newHsd=prompt("Input hsd");
+          let sp= new Procedure(newName,newPrice,newStatus,newHsd);
+          array.push(sp);
+          display(array);
+      }
+  }
+  function edit(value) {
+      let newName=prompt("Input name");
+      let newPrice=+prompt("Input price");
+      let newStatus=prompt("Input status");
+      let newHsd=prompt("Input hsd");
+      array[value]=new Procedure(newName, newPrice, newStatus, newHsd);
+      alert("Successful fix");
+      display(array);
+  }
+  function remove(value) {
+      let input = confirm("do you want to delete ?");
+      if(input){
+          array.splice(value,1);
+          alert("successful delete");
+      }
+      display(array);
+  }
+</script>
+</body>
+</html>

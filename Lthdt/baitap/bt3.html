@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<div>
+<input  type="button" value="Kiem tra" onclick="KiemTra()">
+    <br>
+    <br>
+    <input  type="button" value="Bat" onclick="Bat()">
+    <br>
+    <br>
+    <input  type="button" value="Tat" onclick="Tat()">
+    <br>
+    <br>
+    <input  type="button" value="Sac Pin" onclick="SacPin()">
+    <br>
+    <br>
+    <input  type="button" value="Soan Tin" onclick="SoanTin()">
+    <br>
+    <br>
+    <input  type="button" value="Tin Nhan Da Gui" onclick="NhanTin()">
+    <br>
+    <br>
+    <input  type="button" value="Tin Nhan Da Nhan" onclick="TinGui()">
+    <br>
+    <br>
+    <input  type="button" value="Pin" onclick="SoPin()">
+</div>
+
+<script>
+    class Phone {
+        constructor(name, battery) {
+            this.name = name;
+            this.battery = battery;
+            this.memory1 = []; // tin nhan dang soan thao
+            this.memory2 = [];// tin  nhan trong hop thu den
+            this.memory3 = [];// luu tin nhan da gui
+            this.status = false;
+            this.meseger = ""
+        }
+        getBattery()
+        {
+            this.battery--;
+            return this.battery;
+        }
+        checkStatus() {
+            if (this.status == true) {
+                alert("Dien thoai dang bat!!!");
+                this.battery --;
+            } else {
+                alert("Dien thoai da  tat!!!")
+                this.battery --;
+            }
+        }
+        turnOn() {
+            this.status = true;
+            this.battery --;
+            alert("Dien  thoai da bat");
+        }
+
+        turnOff() {
+            this.status = false;
+            this.battery --;
+            alert("Dien thoai  da  tat!!")
+        }
+
+        charge() {
+            while (this.battery < 100) {
+                this.battery = this.battery + 1;
+            }
+        }
+
+        messageFunction() {
+            if(this.status==true)
+            {
+                if(this.battery>5)
+                {
+                    this.battery --;
+                    this.meseger = prompt("Message: ");
+                    return this.memory1.push(this.meseger);
+                }else if(this.battery>0)
+                {
+                    this.battery--;
+                    alert("ban can sac dien thoai!!!");
+                }
+                else
+                {
+                    alert("ban da het pin");
+                    this.status=false;
+                }
+            }else
+                alert("ban hay bat dien thoai cua minh len truoc da!!")
+
+        }
+
+        receiveMessages() {
+            if(this.status==true)
+            {
+                if(this.battery>5)
+                {
+                    this.battery--;
+                    return this.meseger;
+                }else if(this.battery>0)
+                {
+                    this.battery--;
+                    alert("ban can sac dien thoai!!!");
+                }
+                else
+                {
+                    alert("ban da het pin");
+                    this.status=false;
+                }
+            }else
+                alert("ban hay bat dien thoai cua minh len truoc da!!")
+        }
+        sentMessages()
+        {
+            if(this.status==true)
+            {
+                if(this.battery>5)
+                {
+                    this.battery--;
+                    return this.meseger;
+                }else if(this.battery>0)
+                {
+                    this.battery--;
+                    alert("ban can sac dien thoai!!!");
+                }
+                else
+                {
+                    alert("ban da het pin");
+                    this.status=false;
+                }
+            }else
+                alert("ban hay bat dien thoai cua minh len truoc da!!")
+        }
+    }
+    let phone=  new  Phone("SamSung",6);
+    function KiemTra() {
+        phone.checkStatus()
+    }
+    function Bat() {
+        phone.turnOn();
+    }
+    function Tat() {
+        phone.turnOff()
+    }
+    function SacPin() {
+        phone.charge()
+        alert("ban da sac  day pinnn")
+    }
+    function SoanTin() {
+        let soan = phone.messageFunction();
+        alert("tin nhan da soan: " + soan)
+
+    }
+    function NhanTin() {
+        let den=phone.receiveMessages();
+        alert("tin nhan den: "+den);
+    }
+    function TinGui() {
+       let gui= phone.sentMessages();
+        alert("tin nhan di: "+gui);
+    }
+    function SoPin() {
+        if (phone.status) {
+            if (phone.battery > 5) {
+               let pin = phone.getBattery();
+                alert("pin: " + pin + " %");
+            } else if (phone.battery > 0) {
+               let pin = phone.getBattery();
+                alert("pinn yeu sac di "+pin+" %");
+            } else {
+                phone.battery++;
+               let pin = phone.getBattery();
+                alert("het pin  "+pin+" %");
+                phone.status = false;
+            }
+        } else
+            alert("ban can bbat dien  thoai  len  truoc  da");
+
+    }
+</script>
+
+</body>
+</html>

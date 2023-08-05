@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function SNT(so) {
+        let  d=0;
+        if(so<2)
+        {
+            return false;
+        }
+        else
+        {
+            for(let i=1;i<=so;i++)
+            {
+                if(so%i===0)
+                {
+                    d++;
+                }
+            }
+            return d === 2;
+        }
+    }
+    function fibonaci(so)
+    {
+        let f0=0;
+        let f1=1;
+        let fn;
+        while(f0<=so)
+        {
+            if(f0===so)
+            {
+                return true;
+            }
+            fn=f0+f1;
+            f0=f1;
+            f1=fn;
+        }return  false;
+    }
+    function  display() {
+        let input=+prompt("nhap vao bao nhieu so");
+        for(let i=0; i<=input;i++)
+        {
+            if(SNT(i)===false && fibonaci(i)===false)
+            {
+                document.writeln(i.toString());
+            }
+        }
+    }
+    display();
+</script>
+</body>
+</html>

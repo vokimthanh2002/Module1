@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<button onclick="play()" style="text-align: center;margin-left:50% ;padding:30px;background: #de1354">CHOI</button>
+<script>
+    function play()
+    {
+        let min=parseInt(prompt("nhap so dau"));
+        let max=parseInt(prompt("nhap so cuoi"));
+        let a = Math.floor(Math.random() * (max-min)+1)+min;
+        let so=parseInt(prompt("nhap so du doan"));
+        let k=0;
+        while(true) {
+            if(k==3){
+                alert("da het luot choi");
+                break;
+            }
+            if(so>a)
+            {
+                alert("so lon hon du doan !!!");
+                so=prompt("nhap so du doan");
+                k++;
+            }
+            else if(so<a)
+            {
+                alert("so be hon du doan !!!");
+                so=prompt("nhap so du doan");
+                k++;
+            }
+            else {
+                alert("chuc mung ban da doan trung !!!");
+                break;
+              }
+            }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tg=[];
+    let tg2=[];
+    let  s1="";
+    let  s2=null;
+    let str1= prompt("nhap vao str1: ");
+    let ar1=str1.split("");
+    // let str2= prompt("nhap vao str 2");
+    // let  ar2=str2.split("");
+
+    for(let i=0; i<ar1.length;i++){
+        if(ar1[i]==parseInt(ar1[i])){
+            tg.push(ar1[i]);
+            s1=s1+tg[i];
+        }
+    }
+    document.writeln(s1);
+    // for(let i=0; i<ar2.length;i++){
+    //     if(ar2[i]==parseInt(ar2[i])){
+    //         tg2.push(ar2[i]);
+    //     }
+    // }
+    // document.writeln(tg2.toString());
+
+</script>
+</body>
+</html>
